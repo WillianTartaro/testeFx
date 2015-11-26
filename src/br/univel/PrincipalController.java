@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 	public class PrincipalController {
@@ -21,13 +22,20 @@ import javafx.scene.control.TextField;
 
 	    @FXML
 	    private TextField txtNome;
+	    
+	    @FXML
+	    private TableView<Cliente> tabel;
 
 	    @FXML
 	    void salvar(ActionEvent event) {
 	    	String codigo = txtCodigo.getText();
 	    	String nome = txtNome.getText();
 	    	
-	    	System.out.println(codigo + "\t" + nome);
+	    	Cliente c = new Cliente();
+	    	c.setCodigo(codigo);
+	    	c.setNome(nome);
+	    	tabel.getItems().add(c);
+	    	System.out.println(codigo + nome);
 	    }
 
 	    @FXML

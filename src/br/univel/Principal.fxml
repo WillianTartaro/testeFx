@@ -5,27 +5,53 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
-
-<GridPane prefHeight="306.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="br.univel.PrincipalController">
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-   </rowConstraints>
-   <columnConstraints>
-      <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-   </columnConstraints>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.univel.PrincipalController">
    <children>
-      <Label text="Codigo" GridPane.hgrow="NEVER" />
-      <Label text="Nome" GridPane.rowIndex="1" />
-      <TextField fx:id="txtCodigo" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-      <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" onAction="#salvar" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+      <BorderPane prefHeight="339.0" prefWidth="354.0">
+         <center>
+            <TableView fx:id="tabel" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Codigo" > 
+                <cellValueFactory>
+                	<PropertyValueFactory property="codigo"/>
+                	
+                </cellValueFactory>
+                 </TableColumn>
+                <TableColumn prefWidth="75.0" text="Nome" > 
+                <cellValueFactory>
+                	<PropertyValueFactory property="nome"/>
+                	
+                </cellValueFactory>
+                 </TableColumn>
+
+              </columns>
+            </TableView>
+         </center>
+         <top>
+            <GridPane prefHeight="168.0" prefWidth="354.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Codigo" />
+                  <Label text="Nome" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtCodigo" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#salvar" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+         </top>
+      </BorderPane>
    </children>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
-</GridPane>
+</AnchorPane>
